@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head>
+  <title>Horry Story Generator</title>
+  <link
+    rel="shortcut icon"
+    href="{{ url_for('static', filename='Horror Story Logo.png') }}"
+  />
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+</head>
+
+<body>
+  <img src="{{ url_for('static', filename='Horror Story Logo.png') }}" class="icon" />
+  <h3>Get a Horror Story!</h3>
+  <form action="/" method="post">
+    <input type="text" name="topic" placeholder="Enter a Topic" required />
+    <input type="submit" value="Generate Horror Story" />
+  </form>
+  {% if result %}
+  <div class="result">{{ result }}</div>
+  {% endif %}
+</body>
