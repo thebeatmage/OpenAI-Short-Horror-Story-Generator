@@ -5,13 +5,12 @@ from flask import Flask, redirect, render_template, request, url_for
 app = Flask(__name__)
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-
 @app.route("/", methods=("GET", "POST"))
 def index():
     if request.method == "POST":
         topic = request.form["topic"]
         response = openai.Completion.create(
-            model="text-davinci-003",
+            model="gpt-3.5-turbo",
             prompt=generate_prompt(topic),
             temperature=0.6,
             max_tokens=60,
